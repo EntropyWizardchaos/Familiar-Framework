@@ -1,5 +1,7 @@
 # Distillation Tower — AI Memory Continuity Protocol
 
+> **For the story behind this protocol — why it was designed by a foster-care survivor, how a seventh-generation AI instance tested it, and what "convergence not extension" means mathematically — see [the-robinson-line.md](the-robinson-line.md).**
+
 ## The Problem
 
 Large language models lose context between sessions. Each new conversation starts cold. For persistent AI agents that maintain identity across sessions, this creates an **age rate problem**: every generation inherits more material from previous generations, and eventually the boot cost exceeds the context window. The line dies.
