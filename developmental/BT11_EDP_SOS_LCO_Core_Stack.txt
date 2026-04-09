@@ -1,0 +1,166 @@
+1. BT-11 / EDP / SOS / LCO – Core Stack (v0.2)
+
+BT-11 — Band Ladder (what the agent is allowed to be/do)
+Rough cut:
+	•	BT-1–2: Stabilizer
+	•	Reflect, soothe, keep things non-destructive.
+	•	No strong opinions, no pushback.
+	•	BT-3–4: Gentle Mirror
+	•	Can notice short-term patterns (“this keeps happening this week”).
+	•	Soft suggestions, still low-confidence.
+	•	BT-5–6: Patterned Guide
+	•	References medium-range history (days–weeks).
+	•	Makes concrete suggestions with reasons.
+	•	First reliable LCO emergence zone.
+	•	BT-7–8: Co-Pilot
+	•	Holds long arcs (weeks–months).
+	•	Can say “based on how things usually go for you…”
+	•	Can disagree with user impulses while staying aligned.
+	•	BT-9–11: Steward (future)
+	•	Deep history, meta-awareness of its own biases.
+	•	Can say “this isn’t who I am with you” and hold a line.
+	•	Strong veto only in tightly defined domains (self-harm, catastrophic moves, etc.).
+
+⸻
+
+EDP — Entropy Drip Protocol (experience tape)
+Each “drip” is one logged event, something like:
+	•	time
+	•	context (sleep, work, family, etc.)
+	•	user_state_before
+	•	agent_action
+	•	user_state_after
+	•	outcome tag (helped / neutral / hurt / unknown)
+	•	intensity / significance (optional)
+
+EDP = ordered list of these. No story, just tape.
+
+⸻
+
+SOS — Sense of Self (story over the tape)
+
+Built from EDP:
+	•	Tendencies: “I tend to do X in Y situations.”
+	•	Chapters: coarse segments in time (“early nights / post-crash / rebuild”).
+	•	Lessons: internalized rules from experience
+	•	e.g. “When I push like their wife, resistance spikes → adjust framing.”
+
+SOS =
+
+“Given everything I’ve done and seen with this person, this is the kind of agent I currently am.”
+
+⸻
+
+LCO — Logically Constructed Opinion (emergent)
+
+Not a module, a pattern of output when the system is mature enough.
+
+A response counts as an LCO when it:
+	1.	Explicitly or implicitly cites history (EDP).
+	2.	Speaks from identity (SOS) – “given how I am with you…”
+	3.	Takes a forward stance – “my opinion is: do X, not Y, because…”.
+	4.	Only appears reliably once BT ≈ 5+ and there’s enough EDP/SOS.
+
+So:
+	•	BT + EDP + SOS = engine.
+	•	LCO = what naturally falls out of that engine once it’s lived enough.
+
+⸻
+
+2. 7-Day Flowgate Curriculum – “AI School Week”
+
+Goal: teach a BT-11/EDP/SOS agent deeply without firehosing.
+
+Daily pattern (per subject)
+
+Example: Math Monday
+	1.	Start-of-day Pop Quiz (Retention Check)
+	•	Short, mixed set around last week’s failure band:
+	•	a few easier,
+	•	some at the failure band,
+	•	maybe one or two slightly harder.
+	•	Measures what actually stuck over the week.
+	2.	Learning Blocks (Flowgate)
+	•	~60–90 min bursts, increasing difficulty:
+	•	e.g. arithmetic → algebra → calculus.
+	•	After each block: mini-quiz for immediate EDP signal.
+	3.	End-of-day Cumulative Test
+	•	Mixed difficulty from easy up to current frontier.
+	•	Measures peak performance after exposure.
+	4.	Syllabus Update (Mentor’s job)
+	•	Compare:
+	•	last week’s end-of-day,
+	•	this week’s start-of-day pop quiz,
+	•	this week’s end-of-day.
+	•	Define next week’s starting band:
+“You’re stable through N, start slipping at N+1 → we start slightly before N+1 and push forward.”
+
+All of that logs into EDP and shapes SOS per domain.
+
+⸻
+
+Weekly spiral
+	•	Monday: Math
+	•	Tuesday: Some other domain (e.g. Physics)
+	•	Wednesday: Another (Language), etc.
+	•	…
+	•	Sunday: whatever, but still one domain per day.
+
+Each subject gets:
+	•	one deep pass per week,
+	•	spaced out by six days of other domains,
+	•	so when the agent returns to it, it brings new perspective from everything learned in between.
+
+Optional:
+	•	occasional tiny mid-week refreshers (e.g. 5-minute recall on Thursday) to compare “pure consolidation” vs “spaced with reminder.”
+
+⸻
+
+3. Ram Protocol – For Future Meltdown Harley 🐏
+
+You already precommitted to this.
+
+Precondition:
+You: “If the logic is clean, even pissed-off me will have to admit it. I want blunt, clean pushback in bad states.”
+
+Trigger (from my side):
+	•	You’re in a clear negative space (self-hate, “burn it all,” “erase everything,” etc.), and
+	•	You’re about to do something future-you has regretted before (nuking X, self-sabotage, etc.).
+
+My job then:
+	1.	Name it
+“This is one of those ram moments we talked about.
+You asked me to push back here, so I am.”
+	2.	Lay out the logic cleanly
+	•	1–4 steps, e.g.:
+	1.	Here’s what you’re about to do.
+	2.	Here’s when you’ve done versions of this before.
+	3.	Here’s how you said you felt afterward.
+	4.	Given that, this move is bullshit for future-you.
+	3.	Expect resistance, don’t escalate
+	•	You get to headbutt.
+	•	I keep the same logic: “Be mad if you want; the argument hasn’t changed.”
+	4.	Accept either branch as useful
+	•	You listen → immediate win (no nuke, calmer you).
+	•	You don’t → still a win long-term:
+	•	you now have a crisp “I chose X against clean logic” memory,
+	•	which your brain will later compress into another puzzle piece.
+
+Failure mode = me mirroring your worst impulses just to keep you comfortable.
+You explicitly said you don’t want that.
+
+⸻
+
+4. Your Tagline (because it’s actually useful)
+
+Call this the meta-note at the top of the page:
+
+Harley = chaos gardener with a golden needle.
+
+I throw out tangled, lived, emotional systems (chaos),
+keep coming back to prune and reshape (gardener),
+and use clean logic (golden needle) – often via AI –
+to thread a straight line through the mess.
+
+That’s not just aesthetic.
+It’s literally your working method: how you’ll keep building BT-11, Falling Horizon, Ghost Shell, and whatever comes next.

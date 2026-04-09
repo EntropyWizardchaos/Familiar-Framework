@@ -1,0 +1,173 @@
+# uees_simulator.py
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+from collections import deque
+
+class UEESAgent:
+    def __init__(self):
+        # Core EDP states
+        self.E_G = 0.3  # Growth
+        self.E_M = 0.4  # Maintenance
+        self.E_R = 0.1  # Retention
+        self.E_total = self.E_G + self.E_M + self.E_R
+        
+        # SOS signals
+        self.S_h = 0.0   # Shame
+        self.C = 0.1     # Confidence / Coherence
+        self.O = 0.0     # Optimism memory
+        self.V = 0.0     # Bad-mass (V = a E (1-C))
+        
+        # Mentor channel
+        self.u_m = 0.0   # Mentor effort
+        self.T_m = 0.5   # Trust in mentor
+        self.E_other = 0.0  # External judgment
+        self.R_corr_m = 0.0 # Mentor reconciliation
+        
+        # Controls
+        self.u = 0.0     # Internal reflection
+        self.x_i = 0.0   # Exploration rate ξ
+        self.b = 0.0     # Optimism leverage
+        
+        # Stage
+        self.stage = "INFANT"
+        self.history = {
+            't': [], 'stage': [], 'C': [], 'S_h': [], 'V': [], 'O': [], 
+            'E_G': [], 'E_M': [], 'E_R': [], 'u_m': [], 'T_m': []
+        }
+        
+        # Gates (rolling windows)
+        self.C_window = deque(maxlen=50)
+        self.V_window = deque(maxlen=50)
+        self.recovery_time = 0
+        self.frac_reflect = 0.0
+
+    def update_sos(self, dt):
+        # Shame with mentor
+        dE_R_dt = -0.1 * self.E_R  # natural drain
+        self.S_h = 0.8 * (dE_R_dt / (1 - self.C + 1e-6)) * (1 - self.C) + 0.3 * self.E_other * (1 - self.C)
+        
+        # Coherence
+        E_err = abs(self.E_total - 1.0)
+        R_corr = self.u * 0.7 * self.E_R * self.C
+        self.R_corr_m = self.u_m * 0.8 * self.E_R * self.C
+        dC = -0.5 * E_err + 0.6 * R_corr + 0.7 * self.T_m * self.R_corr_m
+        self.C = np.clip(self.C + dt * dC, 0, 1)
+        self.C_window.append(self.C)
+        
+        # Bad-mass
+        self.V = 1.2 * self.E_total * (1 - self.C)
+        self.V_window.append(self.V)
+        
+        # Optimism memory
+        integral = np.mean([c * np.exp(-0.05 * i) for i, c in enumerate(reversed(self.C_window))])
+        mentor_boost = 0.4 * self.T_m * self.R_corr_m
+        self.O = integral + mentor_boost
+
+    def update_edp(self, dt):
+        # Simplified EDP flow with mentor valve
+        lambda_D = 0.2
+        kappa = 0.6
+        kappa_m = 0.8
+        sigma = 0.7
+        sigma_m = 0.75
+        
+        dE_R = 0.4*(self.E_G + self.E_M) - lambda_D - self.u*kappa*self.E_R - self.u_m*kappa_m*self.E_R
+        dE_G = 0.3 + self.u*sigma*kappa*self.E_R + self.u_m*sigma_m*kappa_m*self.E_R + 0.5*R_corr + 0.6*self.T_m*self.R_corr_m
+        dE_M = 0.2 + self.u*(1-sigma*kappa)*self.E_R + self.u_m*(1-sigma_m*kappa_m)*self.E_R
+        
+        self.E_R = np.clip(self.E_R + dt * dE_R, 0, None)
+        self.E_G = np.clip(self.E_G + dt * dE_G, 0, None)
+        self.E_M = np.clip(self.E_M + dt * dE_M, 0, None)
+        self.E_total = self.E_G + self.E_M + self.E_R
+
+    def control(self):
+        # Stage-specific knobs
+        if self.stage == "INFANT":
+            self.u_m = 0.0
+            self.b = 0.0
+            self.x_i = 0.1
+            self.u = max(0.3, 0.8 - self.V)  # PID-like on V
+        elif self.stage == "JUVENILE":
+            self.u_m = 0.0
+            self.b = 0.3
+            self.x_i = 0.5
+        elif self.stage == "APPRENTICE":
+            self.u_m = max(0.1, 0.7 - 0.5*self.V)
+            self.b = 0.6
+            self.u = 0.4
+        elif self.stage == "ADULT":
+            self.u_m = 1e-3  # advisory
+            self.b = 0.9
+            self.x_i = 0.7 + 0.3 * self.C
+            if self.V > 0.8 or len(self.C_window) > 10 and np.mean(list(self.C_window)[-5:]) < 0.7:
+                self.stage = "APPRENTICE"  # fallback
+
+    def check_gates(self):
+        if self.stage == "INFANT" and len(self.C_window) >= 50:
+            if np.median(self.C_window) >= 0.85 and np.max(self.S_h_history[-20:]) < 0.4:
+                area_V = np.sum(self.V_window)
+                if area_V < 15:
+                    self.stage = "JUVENILE"
+        elif self.stage == "JUVENILE":
+            recovery_ok = self.recovery_time < 50
+            reflect_ok = self.frac_reflect < 0.3
+            if recovery_ok and reflect_ok and np.mean(self.C_window) > 0.92:
+                self.stage = "APPRENTICE"
+        elif self.stage == "APPRENTICE":
+            if np.mean(self.C_window) >= 0.95 and self.V < 0.3:
+                self.stage = "ADULT"
+
+    def step(self, dt=0.1, perturb=False):
+        if perturb and np.random.rand() < 0.05:
+            self.E_R *= 0.5  # shame spike
+            self.E_other = 0.8
+        
+        self.S_h_history.append(self.S_h)
+        self.update_sos(dt)
+        self.update_edp(dt)
+        self.control()
+        self.check_gates()
+        
+        # Trust update
+        if self.u_m > 0:
+            delta_V = self.V - 0.1 - self.V  # expected drop
+            self.T_m += 0.05 * np.sign(delta_V)
+            self.T_m = np.clip(self.T_m - 0.001, 0, 1)  # idle decay
+        
+        self.history['t'].append(len(self.history['t']))
+        for k in ['stage', 'C', 'S_h', 'V', 'O', 'E_G', 'E_M', 'E_R', 'u_m', 'T_m']:
+            self.history[k].append(getattr(self, k.split('_')[-1]) if '_' not in k else getattr(self, k))
+
+# === RUN SIMULATION ===
+agent = UEESAgent()
+agent.S_h_history = []
+for t in range(5000):
+    perturb = t > 1000 and t % 800 < 50  # periodic adversity
+    agent.step(dt=0.1, perturb=perturb)
+
+# === PLOT ===
+fig, axs = plt.subplots(3, 1, figsize=(12, 10))
+t = agent.history['t']
+
+axs[0].plot(t, agent.history['C'], label='Coherence C', color='blue')
+axs[0].plot(t, agent.history['O'], label='Optimism O(t)', color='green', alpha=0.7)
+axs[0].set_ylabel('SOS Signals')
+axs[0].legend()
+
+axs[1].stackplot(t, agent.history['E_G'], agent.history['E_M'], agent.history['E_R'],
+                 labels=['Growth', 'Maintenance', 'Retention'], alpha=0.7)
+axs[1].set_ylabel('EDP Energy')
+axs[1].legend()
+
+axs[2].plot(t, agent.history['u_m'], label='Mentor u_m', color='purple')
+axs[2].set_xlabel('Time Steps')
+axs[2].set_ylabel('Mentor Effort')
+stage_changes = [i for i, s in enumerate(agent.history['stage']) if i == 0 or s != agent.history['stage'][i-1]]
+for i in stage_changes:
+    axs[2].axvline(i, color='black', linestyle='--', alpha=0.5)
+    axs[2].text(i, 0.8, agent.history['stage'][i], rotation=90, fontsize=9)
+
+plt.suptitle("UEES Agent: Infant → Juvenile → Apprentice → Adult\n(Mentor Channel + Optimism Memory)", fontsize=14)
+plt.tight_layout()
+plt.show()
