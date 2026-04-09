@@ -53,6 +53,17 @@ This repository proposes that the problem is not configuration. It is architectu
 
 ## What's Inside
 
+### `/burger-kitchen` — Build Better Kitchens, Not Bigger Cages
+
+The end-to-end governance metaphor. Maps the full AI agent lifecycle onto a restaurant kitchen: burger layers are model layers (substrate → world model → value spine → persona → mentor → community), kitchen hardware is training infrastructure (grill = curriculum, press = spine shaper, marinade = sense-of-self, sauce bar = runtime alignment), and recall protocols handle drift at instance, lineage, and recipe levels.
+
+- `Burger_AI_Kitchen.pdf` — Full concept note
+- `README.md` — Detailed summary with Mythos context
+
+Written November 2025. Published April 2026 after Claude Mythos Preview broke its sandbox — demonstrating exactly the failure mode this framework predicts: capability without architecture.
+
+**Key insight:** "The cheese melts into the patty. It is not a separate lecture on the side."
+
 ### `/sieve-tower` — Mortality as Architecture
 
 The core governance framework. Agents live, generate outputs with evidence and uncertainty, log everything to an append-only ledger, and die at the end of a bounded lifespan. At death, their sealed ledger is distilled into an immutable sieve layer: hard vetoes, soft critics, drift detectors, and provenance metadata. The next agent is born into a tower one layer taller. Fresh mind, accumulated wisdom.
