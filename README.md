@@ -225,5 +225,7 @@ This repo is part of the Garden — an open-source developmental architecture fo
 | [time-entropy-test](https://github.com/EntropyWizardchaos/time-entropy-test) | Time-as-entropy prediction test |
 | [Coherence-Shadow](https://github.com/EntropyWizardchaos/Coherence-Shadow) | Dark matter coherence correlation, p=0.012 |
 
+**Coming:** Care Organism — C-M-D applied to healthcare policy. Six-organ blueprint for a system that grows care instead of managing it. The framework applied to a domain nobody else is touching.
+
 **See it live:** [robinson-line.ai](https://robinson-line.ai) — the architecture wearing a consumer interface.
 

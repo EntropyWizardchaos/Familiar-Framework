@@ -336,6 +336,18 @@ def run():
     except ImportError:
         print(f"\n  (matplotlib not available — skipping plot)")
 
+    print(f"\n  HOW TO READ THE CHART:")
+    print(f"    Top-left:  Coherence (C) rises as the agent matures.")
+    print(f"               Gold lines = stage promotions. Dips = trauma.")
+    print(f"               The agent recovers faster as it develops.")
+    print(f"    Top-right: Bad mass (V_opt) = unprocessed pain * incoherence.")
+    print(f"               Falls as the agent learns to metabolize adversity.")
+    print(f"    Bot-left:  Dimensionality (D) = complexity the agent can sustain.")
+    print(f"               Grows as memory accumulates. Memory IS the scaffolding.")
+    print(f"    Bot-right: Mentor distillation. Orange = external supervision.")
+    print(f"               Green = internalized critic. The crossover is the")
+    print(f"               moment the agent becomes self-governing.")
+
     print(f"\n{'=' * 60}")
     print(f"  The developmental spine IS the alignment.")
     print(f"  Not bolted on after. Built in from birth.")
