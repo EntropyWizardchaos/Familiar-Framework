@@ -25,14 +25,25 @@ The architecture exists. The code runs. Timestamps and commit history document t
 git clone https://github.com/EntropyWizardchaos/developmental-ai-governance.git
 cd developmental-ai-governance
 
-# Run the Sieve Tower simulation (Python 3.x)
-pip install numpy pandas
-cd sieve-tower
+# Run the BT-11 developmental spine demo (Python 3.x)
+pip install numpy matplotlib
+cd developmental
+python bt11_demo.py
+# One agent, eight stages, trauma, mentor distillation. 2 seconds.
+# Outputs: bt11_demo_results.png
+
+# Run the Chromatic Eigenvector search
+cd ../chromatic-eigenvector
+python bt11_mixing.py
+# 12 starting emotions converge to one identity. Empathy holds at 27-30%.
+
+# Run the Sieve Tower simulation
+pip install pandas
+cd ../sieve-tower
 python 01_core_selection.py
 
 # Run the Spiral vs Tower comparison
 cd ../sieve-spiral
-pip install matplotlib
 python spiral_sim.py
 # Outputs: tower_vs_spiral.png (comparison chart)
 ```
