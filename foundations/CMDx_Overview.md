@@ -101,6 +101,8 @@ Every design decision in the Sieve Tower maps to a term in the equation. This is
 
 ## Falsifiables
 
+### Internal (testable with simulation code in this repository)
+
 The framework is wrong if:
 
 1. Systems that accumulate more structured memory (M) do NOT show greater structural resilience than those that don't.
@@ -108,7 +110,19 @@ The framework is wrong if:
 3. Dimensional collapse (capability regression) occurs equally in high-M and low-M systems under the same stress.
 4. The adversity coupling is unnecessary — systems maintain coherence equally well at any dimensionality.
 
-Each of these is testable with the simulation code in this repository.
+### External (testable against real-world data the framework did not build)
+
+The framework is wrong if:
+
+5. **Galactic coherence does not predict dark matter fraction.** C-M-D predicts that morphologically coherent galaxies should have 5-10% less dark matter at fixed mass. Tested on 171 SPARC galaxies: Q=1 subsample shows p=0.000002 (Pearson), early vs late types differ by 9.9% (p=0.020). Concentration index predicts f_dm at p=0.012 across 143 galaxies, survives controls for mass and gas fraction. See [sparc-coherence-test](https://github.com/EntropyWizardchaos/sparc-coherence-test) and [Coherence-Shadow](https://github.com/EntropyWizardchaos/Coherence-Shadow). **Status: direction confirmed. Magnitude matches. Awaiting feedback-null comparison (TNG/FIRE) to rule out standard baryonic explanations.**
+
+6. **BT-11 agents are not more robustly aligned than non-BT-11 agents.** The decisive test: build a BT-11 agent with RLHF providing within-stage rewards, compare alignment robustness to a standard RLHF agent after mentor removal. If developmental staging doesn't improve alignment durability, the architecture doesn't earn its complexity. **Status: not yet tested. Architecture is ready. Scale is not.**
+
+7. **Mentor distillation produces agents indistinguishable from agents with permanent external oversight.** If internalized values (distilled critic) perform identically to external supervision (permanent mentor), then distillation adds complexity without benefit. The test: remove the mentor from a mature BT-11 agent and compare behavior to an agent with mentor still active. If behavior is identical, distillation worked. If behavior degrades, the internalization was shallow. **Status: simulation results show distillation produces stable agents post-removal. Not yet tested on real language models.**
+
+8. **Magnetic field regularity does not correlate with morphological type.** C-M-D predicts that coherence (C) maps to ordered magnetic field and shear (D) maps to total field. Pilot result: pitch angle anticorrelates with shear parameter (r=-0.576, p=0.039, N=13). Hubble type anticorrelates with field order ratio (rho=-0.714, p=0.009, N=12). **Status: pilot-scale. Needs extension to full Beck catalog (N=19+).**
+
+Internal falsifiables test the simulation. External falsifiables test the world. Both are required. A framework that only passes its own tests hasn't been tested.
 
 ---
 
