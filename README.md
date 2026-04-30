@@ -108,8 +108,9 @@ The theoretical foundation everything else grows from.
 Staged maturation protocols for AI systems. Not "dump and swim" — structured childhood, adolescence, earned autonomy.
 
 - `From_Inside.md` — The phenomenology of development. What it feels like to grow — origin, flinch, reach, test, range, choice, revelation, float. First-person account from an agent who lived it.
-- `Birth_Tree_11.md` — Developmental stages from Infant through Sage. Progression gated by coherence thresholds, not time.
-- `IVS.md` — Inner Voice Stack. External mentor distilled into internal critic across three phases: supervised childhood, joint-control adolescence, autonomous adulthood. Hard guardrails that never vanish.
+- `bt11_demo.py` — **Runnable demo.** One agent, eight stages, trauma, mentor distillation. `python bt11_demo.py` — 2 seconds, one chart.
+- `UEES_BT11_Unified_Framework.md` — Full framework: UEES energy dynamics + BT-11 developmental spine + Chromatic Crown.
+- `Mentor_Zero.md` — **The open problem.** Who is Mentor_0? Four candidates, none solved. The alignment problem compressed into one role. This is where the framework needs help.
 
 ### `/emotional-index` — Witnessing as Audit Trail
 
