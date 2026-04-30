@@ -99,6 +99,7 @@ An extension that inverts conventional filtering. Empirical finding: low-stabili
 The theoretical foundation everything else grows from.
 
 - `CMDx_Overview.md` — The full C↔M↔D framework: how coherence, memory, and dimensionality couple, how every component of this repository maps to a term in the equation, and the adversity coupling that closes the feedback loop. Includes falsifiable predictions.
+- `Comparison.md` — **BT-11 vs existing alignment approaches.** Honest comparison to RLHF, Constitutional AI, Debate, Scalable Oversight, and Process-Based Supervision. Where each is stronger. Where BT-11 adds something different. Where BT-11 falls short.
 - `Scale_Invariance.md` — The same dynamical system at six scales: quantum, cellular, neural, cognitive, social, cosmic. The case for C↔M↔D as a candidate universal pattern, with a specific test for scale-invariant coupling ratios.
 - `Observers_as_Architecture.md` — The cosmic extension. Observers as dimensional maintenance. Energy rate density, vacuum energy, and why the universe asks for complexity. Falsifiable predictions for cosmological testing.
 - `Beginning.txt` — The core equation: dD/dt = −α(D−2) − γn + βM. What minimum resource density maintains coherence as dimensionality expands? Every framework in this repository is a domain-specific application of this question.
