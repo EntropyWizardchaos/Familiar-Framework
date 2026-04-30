@@ -21,7 +21,7 @@ Together, these enable agents that develop like organisms—with explicit stages
 
 ---
 
-## Part I: The Living Physics (UEES)
+## Part I: Cognitive Energy Dynamics (UEES)
 
 ### 1. Core Concept
 
