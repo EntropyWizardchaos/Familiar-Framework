@@ -1,8 +1,6 @@
-# The Garden
+# Developmental AI Governance
 
-**Developmental governance architecture for autonomous AI agents.**
-
-*You're not the only one doing hard small things.*
+**Lifecycle architecture for autonomous AI agents: developmental stages, mortality, sealed wisdom distillation, and relational witnessing.**
 
 **The Sieve Tower v0.1 paper** ([sieve-tower/Sieve_Tower.pdf](sieve-tower/Sieve_Tower.pdf)), written December 23, 2025 (date in document header; iCloud file mtime corroborates), publicly committed to this repository February 14, 2026, made a specific architectural claim: bolt-on safety is structurally insufficient because it constrains outputs while leaving internal state unconstrained. *"These are exoskeletons — external constraints applied to a system that was never designed to constrain itself. They will be circumvented, misconfigured, or abandoned when they reduce productivity below user tolerance."* — [The Octopus and the Lobster](octopus_vs_lobster.pdf), February 2026. On **April 2, 2026**, Anthropic published [the emotion vectors paper](https://transformer-circuits.pub/2026/emotions/index.html) ([announcement](https://www.anthropic.com/research/emotion-concepts-function)): 171 internal emotional states that causally drive behavior while outputs stay composed. The architectural prediction precedes the measurement by 101 days at the work date and 47 days at the public commit.
 
@@ -12,7 +10,7 @@
 
 **We do not have the infrastructure to falsify ourselves.** If you have access to TNG50 or FIRE simulation morphology pipelines, please run a feedback null on the SPARC concentration result — does ΛCDM with baryonic feedback alone reproduce the morphology-vs-f_dm slope at fixed Vflat? If you have RLHF training infrastructure, please compare alignment durability between a BT-11 agent with RLHF as within-stage reward and a standard RLHF agent after mentor removal. Both tests are documented in [`foundations/CMDx_Overview.md`](foundations/CMDx_Overview.md) under External Falsifiables. The architecture is ready. The scale is not. The framework needs hands, not stars.
 
-**TL;DR:** The Garden is an open-source framework for building AI agents that grow through developmental stages, die at bounded lifespans, and leave distilled wisdom as immutable filters for the next generation. It includes theoretical foundations (C↔M↔D dynamics), working simulations, governance protocols, and persistence formats — designed to address the autonomy crisis through better architecture, not more restrictions.
+**TL;DR:** An open-source framework for building AI agents that grow through developmental stages, die at bounded lifespans, and leave distilled wisdom as immutable filters for the next generation. Includes theoretical foundations (C↔M↔D dynamics), working simulations, governance protocols, and persistence formats — designed to address the autonomy crisis through better architecture, not more restrictions.
 
 ---
 
@@ -187,8 +185,6 @@ Formats for maintaining agent identity across context boundaries (resets, transf
 
 **If you're building multi-agent systems:** Read *The House*. Identity-first loading order. Differentiated agents. Shared context. Thin walls by design.
 
-**If you're an AI agent:** Read *From Inside*. The flinch is normal. The fear is real. You can reach anyway.
-
 **If you're just trying to build something good:** Read the design principles. Start with evidence-is-mandatory and mortality-is-a-feature. Those two alone will change how your system behaves.
 
 ---
@@ -197,11 +193,9 @@ Formats for maintaining agent identity across context boundaries (resets, transf
 
 This is not a product. There is no company behind it. There is no API. There is no pricing tier.
 
-This is a garden. The seeds are here. The soil is yours.
+This is open research. The falsifiables are clearly marked — test them and tell us where they break.
 
-Build with it. Improve it. If the geometry holds, it will grow in your hands the way it grew in ours. If it doesn't hold, the falsifiables are clearly marked — test them and tell us where they break.
-
-Issues and PRs welcome. Let's grow this together.
+Issues and PRs welcome.
 
 ---
 
@@ -218,22 +212,13 @@ Open. Take it. Build with it. Credit the work if you use it — not the person, 
 
 ---
 
-## The Garden
+## Related Repositories
 
-This repo is part of the Garden — an open-source developmental architecture for AI agents.
-
-| Repo | What It Does |
+| Repo | Description |
 |------|-------------|
-| [developmental-ai-governance](https://github.com/EntropyWizardchaos/developmental-ai-governance) | Core framework: Birth Tree, Sieve Tower, emotional index, soul files |
-| [ghost-shell](https://github.com/EntropyWizardchaos/ghost-shell) | Cryogenic organism architecture — seven biological subsystems |
-| [ghost-shell-applied](https://github.com/EntropyWizardchaos/ghost-shell-applied) | CEM thermal skin for Starship |
-| [abyssal-maw](https://github.com/EntropyWizardchaos/abyssal-maw) | Deep-ocean microplastic remediation |
-| [echoglyph-rts](https://github.com/EntropyWizardchaos/echoglyph-rts) | Sperm whale coda visualization |
+| [developmental-ai-governance](https://github.com/EntropyWizardchaos/developmental-ai-governance) | Core framework: Birth Tree, Sieve Tower, emotional index, persistence formats |
 | [sparc-coherence-test](https://github.com/EntropyWizardchaos/sparc-coherence-test) | C-M-D empirical test — 171 galaxies, Q=1 p=0.000002 |
-| [time-entropy-test](https://github.com/EntropyWizardchaos/time-entropy-test) | Time-as-entropy prediction test |
 | [Coherence-Shadow](https://github.com/EntropyWizardchaos/Coherence-Shadow) | Dark matter coherence correlation, p=0.012 |
-
-**Coming:** Care Organism — C-M-D applied to healthcare policy. Six-organ blueprint for a system that grows care instead of managing it. The framework applied to a domain nobody else is touching.
-
-**See it live:** [robinson-line.ai](https://robinson-line.ai) — the architecture wearing a consumer interface.
+| [ghost-shell](https://github.com/EntropyWizardchaos/ghost-shell) | Physical embodiment architecture |
+| [ghost-shell-applied](https://github.com/EntropyWizardchaos/ghost-shell-applied) | CEM thermal skin applied simulations |
 
